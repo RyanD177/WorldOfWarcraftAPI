@@ -57,13 +57,16 @@ if(petMedia.includes('blue')){
     petImage.className = "pet-picture-image"
     petPictureContainer.appendChild(petImage);
     let petName = document.createElement("p");
-    petName.innerText = petData.name.en_US;
+    petName.innerText = `Pet Name: ${petData.name.en_US}`;
     let petDescription = document.createElement('p');
     petDescription.classList.add('pet-description');
-    petDescription.innerHTML = `${petDescriptionText}`
+    petDescription.innerHTML = `Pet Description: <br> ${petDescriptionText}`
+   
+ 
     
     petContainer.appendChild(petPictureContainer);
     petContainer.appendChild(petName);
+   
     petContainer.appendChild(petDescription);
     petImages.appendChild(petContainer);
 }
