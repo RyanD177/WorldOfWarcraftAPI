@@ -1,32 +1,35 @@
-
-*{
-    margin:0;
-    padding:0;
-
+* {
+  margin: 0;
+  
 }
+
 body,
-html{
-    height:100%;
-    width:100%;
+html {
+ margin:0;
 }
-.pet-container{
-   display:flex;
-   justify-content: center;
-   align-items: center;
-   padding:2rem 3rem;
-   margin:1rem 3%;
-   background-color: orange;
-   flex: 1 1 10rem;
 
-    
-}
 #pet-images{
-   
-    background-color:red;
     display:flex;
     flex-wrap:wrap;
+    background-color: red;
+    margin:5px;
+    justify-content: center;
+    align-items: center;
+
 }
-p{
-    color:white;
-    font-size:24px;
+#pet-images p{
+    text-align: center;
+    font-size:1.3rem;
+    margin-top:2rem;
 }
+.pet-container{
+    background-color: orange;
+    display:flex;
+    flex-direction: column;
+    min-width:300px;
+    height:400px;
+    flex:1;
+    margin:3rem;
+
+}
+
