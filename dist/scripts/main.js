@@ -31,11 +31,44 @@ async function battlePets() {
  const petIndexResponse = await fetch(`${petIndexUrl}?${petIndexParameters.toString()}`)
  const petIndexData = await petIndexResponse.json();
  console.log(petIndexData);
+ for(let i = 0; i< petIndexData.pets.length; i++){ 
+    const petData = petIndexData.pets[i];
+ 
+    const petIDParameters = new URLSearchParams({
+        namespace: 'static-US',
+        locale: "en-US",
+        access_token: accesstoken,
+    })
+    const petID = petData.id
+    const petMediaResponse = await fetch(`https://us.api.blizzard.com/data/wow/pet/${petID}?${petIDParameters}`)
+    const petMediaData = await petMediaResponse.json();
+    const petMedia = petMediaData.icon
+    
+   
+if(petMedia.includes('blue')){
+    const petImages = document.getElementById("pet-images");
+    const petContainer = document.createElement("div");
+    petContainer.className = "pet-container"
+    const petPictureContainer = document.createElement("div");
+    petPictureContainer.className = "pet-picture-container"
+    const petImage = document.createElement("img");
+    petImage.src = petMedia;
+    petImage.className = "pet-picture-image"
+    petPictureContainer.appendChild(petImage);
+    let petName = document.createElement("p");
+    petName.innerText = petData.name.en_US;
+    console.log(petName);
+
+    petContainer.appendChild(petPictureContainer);
+    petContainer.appendChild(petName);
+    petImages.appendChild(petContainer);
+}
+
 
 }
 
 
 
-
+}
 
 battlePets();
