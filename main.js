@@ -15,7 +15,7 @@ async function battlePets() {
       "Content-Type": "application/x-www-form-urlencoded",
     },
   });
-  const data = await response.json();
+  const data = await response.json()
   console.log(data); // token 
   let accesstoken = data.access_token;
   console.log(accesstoken); // token code
